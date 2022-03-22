@@ -1,0 +1,42 @@
+
+result/train/accs/*
+result/train/mets/*
+result/train/doc/*
+result/train/roc/*
+result/train//save_model/*
+result/visualize/heatmaps_npy/*
+result/visualize/heatmaps_png/*
+result/visualize/heatmaps_layers_vs_experiment/*
+networks/init_weight/*
+networks/model_map/*
+tmp/*
+result_luna16/
+save_model/
+network_keras/init_weight/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
