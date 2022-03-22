@@ -48,13 +48,13 @@ def create_data():
     X = []
     y = []
 
-    m_list = glob.glob(slice_npy_malignant_dir)
+    m_list = glob.glob(slice_npy_malignant_dir+'*')
 
     for m_name in tqdm.tqdm(m_list):
         X.append(m_name)
         y.append(0)
 
-    b_list = glob.glob(slice_npy_benign_dir)
+    b_list = glob.glob(slice_npy_benign_dir+'*')
 
     for b_name in tqdm.tqdm(b_list):
         X.append(b_name)
@@ -90,14 +90,14 @@ def generate_train(X,Y, data_argument):
             x_move = []
             x_list = []
 
-            np.save(TMP_FOLDER+"t"+str(i)+".npy",m_array)
-            x_list.append(TMP_FOLDER+"t"+str(i)+".npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"r.npy",np.rot90(m_array,1))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"r.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"rr.npy",np.rot90(m_array,2))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"rr.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"rrr.npy",np.rot90(m_array,3))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"rrr.npy")
+            np.save(tmp_dir+"t"+str(i)+".npy",m_array)
+            x_list.append(tmp_dir+"t"+str(i)+".npy")
+            np.save(tmp_dir+"t"+str(i)+"r.npy",np.rot90(m_array,1))
+            x_list.append(tmp_dir+"t"+str(i)+"r.npy")
+            np.save(tmp_dir+"t"+str(i)+"rr.npy",np.rot90(m_array,2))
+            x_list.append(tmp_dir+"t"+str(i)+"rr.npy")
+            np.save(tmp_dir+"t"+str(i)+"rrr.npy",np.rot90(m_array,3))
+            x_list.append(tmp_dir+"t"+str(i)+"rrr.npy")
 
             for x_arg in x_list:
                 X1.append(x_arg)
@@ -111,22 +111,22 @@ def generate_train(X,Y, data_argument):
             x_move = []
             x_list = []
 
-            np.save(TMP_FOLDER+"t"+str(i)+".npy",m_array)
-            x_list.append(TMP_FOLDER+"t"+str(i)+".npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"r.npy",np.rot90(m_array,1))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"r.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"rr.npy",np.rot90(m_array,2))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"rr.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"rrr.npy",np.rot90(m_array,3))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"rrr.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"f.npy",np.fliplr(m_array))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"f.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"fr.npy",np.fliplr(np.rot90(m_array,1)))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"fr.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"frr.npy",np.fliplr(np.rot90(m_array,2)))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"frr.npy")
-            np.save(TMP_FOLDER+"t"+str(i)+"frrr.npy",np.fliplr(np.rot90(m_array,3)))
-            x_list.append(TMP_FOLDER+"t"+str(i)+"frrr.npy")
+            np.save(tmp_dir+"t"+str(i)+".npy",m_array)
+            x_list.append(tmp_dir+"t"+str(i)+".npy")
+            np.save(tmp_dir+"t"+str(i)+"r.npy",np.rot90(m_array,1))
+            x_list.append(tmp_dir+"t"+str(i)+"r.npy")
+            np.save(tmp_dir+"t"+str(i)+"rr.npy",np.rot90(m_array,2))
+            x_list.append(tmp_dir+"t"+str(i)+"rr.npy")
+            np.save(tmp_dir+"t"+str(i)+"rrr.npy",np.rot90(m_array,3))
+            x_list.append(tmp_dir+"t"+str(i)+"rrr.npy")
+            np.save(tmp_dir+"t"+str(i)+"f.npy",np.fliplr(m_array))
+            x_list.append(tmp_dir+"t"+str(i)+"f.npy")
+            np.save(tmp_dir+"t"+str(i)+"fr.npy",np.fliplr(np.rot90(m_array,1)))
+            x_list.append(tmp_dir+"t"+str(i)+"fr.npy")
+            np.save(tmp_dir+"t"+str(i)+"frr.npy",np.fliplr(np.rot90(m_array,2)))
+            x_list.append(tmp_dir+"t"+str(i)+"frr.npy")
+            np.save(tmp_dir+"t"+str(i)+"frrr.npy",np.fliplr(np.rot90(m_array,3)))
+            x_list.append(tmp_dir+"t"+str(i)+"frrr.npy")
 
             for x_arg in x_list:
                 X1.append(x_arg)
@@ -136,8 +136,8 @@ def generate_train(X,Y, data_argument):
         for x in tqdm.tqdm(X):
             m_array = np.load(x)
 
-            np.save(TMP_FOLDER+"t"+str(i)+".npy",m_array)
-            X1.append(TMP_FOLDER+"t"+str(i)+".npy")
+            np.save(tmp_dir+"t"+str(i)+".npy",m_array)
+            X1.append(tmp_dir+"t"+str(i)+".npy")
             i = i + 1
         YR = Y
 
@@ -164,8 +164,8 @@ def generate_test(X, y):
 
         m_array = np.load(x)
 
-        np.save(TMP_FOLDER+"v"+str(i)+".npy",m_array)
-        X1.append(TMP_FOLDER+"v"+str(i)+".npy")
+        np.save(tmp_dir+"v"+str(i)+".npy",m_array)
+        X1.append(tmp_dir+"v"+str(i)+".npy")
         i = i + 1
 
     X1 = np.array(X1)
