@@ -55,7 +55,6 @@ def train():
 def visualize():
     print(" beigin visualize...")
 
-    """
     for i,ex in enumerate(experiments):
         print("_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/")
         print("_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/")
@@ -71,7 +70,7 @@ def visualize():
         print("COMMAND: ",cmd)
         runcmd = subprocess.call(cmd.split())
         print (runcmd)
-    """
+        
     print(" begin arrange...")
     cmd = "python arrange_heatmaps.py"
     print("COMMAND: ",cmd)

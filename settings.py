@@ -1,7 +1,7 @@
 # preprocessing
 base_luna16_dir =  "E:/LUNA16/"
 base_data_dir   = "E:/luna16_2021/"
-annotation_file = base_luna16_dir + 'BMnodule.csv' # LIDCとLUNA16を対応させることによって生成されている
+annotation_file = './BMnodule.csv' # LIDCとLUNA16を対応させることによって生成されている
 candidate_file  = base_luna16_dir + 'candidates_V2.csv' # LUNA16より
 slice_png_benign_dir    = base_data_dir + 'benign_slice/'
 slice_png_malignant_dir = base_data_dir + 'malignant_slice/'
