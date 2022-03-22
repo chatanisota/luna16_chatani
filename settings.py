@@ -12,6 +12,7 @@ slice_npy_malignant_dir = base_data_dir + 'malignant_slice_npy/'
 base_network_dir = "./networks/"
 save_init_weight_dir = base_network_dir + 'init_weight/'
 model_map_dir        = base_network_dir + 'model_map/'
+tmp_dir = './tmp/'
 
 # train
 base_train_result_dir = "./result/train/"

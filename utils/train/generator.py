@@ -8,6 +8,7 @@ import os
 import gc
 import shutil
 import numpy as np
+from settings import *
 
 """
 良性は「1」悪性は「0」
@@ -21,9 +22,6 @@ image_size = 48
 CENTER = int(image_size/2)
 
 DATA_ARGUMENTATION = True
-BENIGN_FOLDER = "E:/luna16_2021/benign_slice_npy/*"
-MALIGNANT_FOLDER = "E:/luna16_2021/malignant_slice_npy/*"
-TMP_FOLDER = "./tmp/"
 IS_3D = False
 
 def add_gaussian_noise(src):
@@ -50,13 +48,13 @@ def create_data():
     X = []
     y = []
 
-    m_list = glob.glob(MALIGNANT_FOLDER)
+    m_list = glob.glob(slice_npy_malignant_dir)
 
     for m_name in tqdm.tqdm(m_list):
         X.append(m_name)
         y.append(0)
 
-    b_list = glob.glob(BENIGN_FOLDER)
+    b_list = glob.glob(slice_npy_benign_dir)
 
     for b_name in tqdm.tqdm(b_list):
         X.append(b_name)
@@ -83,7 +81,7 @@ def generate_train(X,Y, data_argument):
     YR = []
 
 
-    renew_folder(TMP_FOLDER)
+    renew_folder(tmp_dir)
     i = 0
     if data_argument == 1:
         for x, y in tqdm.tqdm(zip(X,Y)):
